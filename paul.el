@@ -3,6 +3,7 @@
 (require 'slime)
 (require 'sonian-navigation)
 (global-set-key (kbd "C-c C-j") 'sonian-jump)
+(global-set-key (kbd "C-c C-;") 'comment-or-uncomment-region)
 
 ;; swank launchers
 
@@ -58,7 +59,7 @@
            erc-nick "pjstadig"
            erc-autojoin-timing :ident
            erc-autojoin-channels-alist
-           '(("freenode.net" "#emacs" "#clojure" "#leiningen"
+           '(("freenode.net" "#clojure" "#leiningen"
               "#sonian" "#sonian-safe"))
            erc-ignore-list '("sexpbot")
            erc-prompt-for-nickserv-password nil)
