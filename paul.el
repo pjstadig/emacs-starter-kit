@@ -60,7 +60,7 @@
            erc-autojoin-timing :ident
            erc-autojoin-channels-alist
            '(("freenode.net" "#clojure" "#leiningen"
-              "#sonian" "#sonian-safe"))
+              "#clojure-awesome" "#sonian" "#sonian-safe"))
            erc-ignore-list '("sexpbot")
            erc-prompt-for-nickserv-password nil)
      (require 'erc-services)
@@ -96,4 +96,16 @@
 
 (add-hook 'erc-text-matched-hook 'call-libnotify)
 
-(server-start)
+(global-unset-key [home])
+(global-unset-key [end])
+(global-unset-key [prior])
+(global-unset-key [next])
+
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "/usr/bin/conkeror")
+
+(unless (boundp 'start-server)
+  (setq start-server t))
+
+(if (not start-server)
+    (server-start))
