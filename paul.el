@@ -1,6 +1,7 @@
 (add-to-list 'load-path "/home/paul/src/sonian/sa-safe/.elisp")
 
 (require 'slime)
+(require 'color-theme)
 (require 'sonian-navigation)
 (global-set-key (kbd "C-c C-j") 'sonian-jump)
 (global-set-key (kbd "C-c C-;") 'comment-or-uncomment-region)
@@ -100,6 +101,9 @@
 (global-unset-key [end])
 (global-unset-key [prior])
 (global-unset-key [next])
+
+(load-file "~/.emacs.d/color-theme-paul.el")
+(color-theme-paul)
 
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "/usr/bin/conkeror")
