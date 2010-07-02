@@ -60,7 +60,7 @@
            erc-nick "pjstadig"
            erc-autojoin-timing :ident
            erc-autojoin-channels-alist
-           '(("freenode.net" "#clojure" "#leiningen"
+           '(("freenode.net" "#clojure"
               "#clojure-awesome" "#sonian" "#sonian-safe"))
            erc-ignore-list '("sexpbot")
            erc-prompt-for-nickserv-password nil)
@@ -101,6 +101,10 @@
 (global-unset-key [end])
 (global-unset-key [prior])
 (global-unset-key [next])
+(global-unset-key [left])
+(global-unset-key [right])
+(global-unset-key [up])
+(global-unset-key [down])
 
 (load-file "~/.emacs.d/color-theme-paul.el")
 (color-theme-paul)
