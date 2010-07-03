@@ -42,7 +42,7 @@
 ;; (setq browse-url-browser-function 'browse-default-epiphany)
 ;; (setq browse-url-browser-function 'browse-default-w3m)
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "google-chrome")
+      browse-url-generic-program "conkeror")
 
 ;; Transparently open compressed files
 (auto-compression-mode t)
