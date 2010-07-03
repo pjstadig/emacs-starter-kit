@@ -36,6 +36,7 @@
 
 (global-set-key (kbd "C-c C-s") 'slime-it-up)
 (global-set-key (kbd "C-c C-m") 'mvn-swank)
+(global-set-key (kbd "C-c C-l") 'lein-swank)
 
 (autoload 'clojure-test-mode "clojure-test-mode" "Clojure test mode" t)
 (autoload 'clojure-test-maybe-enable "clojure-test-mode" "" t)
@@ -44,6 +45,8 @@
                                 (whitespace-mode t)))
 (add-hook 'slime-repl-mode-hook '(lambda ()
                                    (paredit-mode t)))
+(add-hook 'erc-mode-hook '(lambda ()
+                            (erc-scrolltobottom-mode t)))
 
 ;;(set-face-attribute 'default nil :family "Inconsolata" :height 100)
 ;;(modify-frame-parameters nil '((wait-for-wm . nil)))
@@ -78,7 +81,7 @@
   (load (expand-file-name "~/.passwords.el"))
 
   (setq erc-nickserv-passwords
-        `((freenode     (("technomancy" . ,freenode-password))))))
+        `((freenode     (("pjstadig" . ,freenode-password))))))
 
 (defun clean-message (s)
   (setq s (replace-regexp-in-string "'" "&apos;" 
@@ -105,6 +108,8 @@
 (global-unset-key [right])
 (global-unset-key [up])
 (global-unset-key [down])
+(global-unset-key (kbd "C-+"))
+(global-unset-key (kbd "C--"))
 
 (load-file "~/.emacs.d/color-theme-paul.el")
 (color-theme-paul)

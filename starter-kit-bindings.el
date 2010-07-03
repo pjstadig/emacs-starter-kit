@@ -18,8 +18,8 @@
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
 
 ;; Font size
-;; (define-key global-map (kbd "C-+") 'text-scale-increase)
-;; (define-key global-map (kbd "C--") 'text-scale-decrease)
+(define-key global-map (kbd "C-+") 'text-scale-increase)
+(define-key global-map (kbd "C--") 'text-scale-decrease)
 
 ;; Use regex searches by default.
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
