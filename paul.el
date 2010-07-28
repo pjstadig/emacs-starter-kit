@@ -1,5 +1,8 @@
 (add-to-list 'load-path "/home/paul/src/sonian/sa-safe/.elisp")
+(add-to-list 'load-path "/home/paul/src/clojure-mode")
+(add-to-list 'load-path "/home/paul/src/swank-clojure")
 
+(require 'clojure-mode)
 (require 'slime)
 (require 'color-theme)
 (require 'sonian-navigation)
@@ -84,32 +87,32 @@
         `((freenode     (("pjstadig" . ,freenode-password))))))
 
 (defun clean-message (s)
-  (setq s (replace-regexp-in-string "'" "&apos;" 
-  (replace-regexp-in-string "\"" "&quot;"
-  (replace-regexp-in-string "&" "&amp;" 
-  (replace-regexp-in-string "<" "&lt;"
-  (replace-regexp-in-string ">" "&gt;" s)))))))
+  (setq s (replace-regexp-in-string "'" "&apos;"
+          (replace-regexp-in-string "\"" "&quot;"
+          (replace-regexp-in-string "&" "&amp;"
+          (replace-regexp-in-string "<" "&lt;"
+          (replace-regexp-in-string ">" "&gt;" s)))))))
 
 (defun call-libnotify (matched-type nick msg)
-  (let* ((cmsg  (split-string (clean-message msg)))       
+  (let* ((cmsg  (split-string (clean-message msg)))
          (nick   (first (split-string nick "!")))
          (msg    (mapconcat 'identity (rest cmsg) " ")))
     (shell-command-to-string
      (format "notify-send '%s says:' '%s'"
-         nick msg))))
+             nick msg))))
 
 (add-hook 'erc-text-matched-hook 'call-libnotify)
 
-(global-unset-key [home])
-(global-unset-key [end])
-(global-unset-key [prior])
-(global-unset-key [next])
-(global-unset-key [left])
-(global-unset-key [right])
-(global-unset-key [up])
-(global-unset-key [down])
-(global-unset-key (kbd "C-+"))
-(global-unset-key (kbd "C--"))
+;; (global-unset-key [home])
+;; (global-unset-key [end])
+;; (global-unset-key [prior])
+;; (global-unset-key [next])
+;; (global-unset-key [left])
+;; (global-unset-key [right])
+;; (global-unset-key [up])
+;; (global-unset-key [down])
+;; (global-unset-key (kbd "C-+"))
+;; (global-unset-key (kbd "C--"))
 
 (load-file "~/.emacs.d/color-theme-paul.el")
 (color-theme-paul)
@@ -120,5 +123,17 @@
 (unless (boundp 'start-server)
   (setq start-server t))
 
-(if (not start-server)
-    (server-start))
+;; org-mode setup
+(add-to-list 'load-path "/home/paul/src/org-mode/lisp")
+(add-to-list 'load-path "/home/paul/src/org-mode/contrib/lisp")
+
+(require 'org)
+(define-key global-map "\C-cc" 'org-capture)
+(setq org-directory "~/org")
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
+         "* TODO %?\n  %i\n  %a")
+        ("j" "Journal" entry (file+datetree "~/org/journal.org")
+         "* %?\n  Entered on %T\n  %i")))
+
+(setq org-agenda-files '("~/org"))
