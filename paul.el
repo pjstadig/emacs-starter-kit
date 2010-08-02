@@ -137,6 +137,7 @@
          "* %?\n  Entered on %T\n  %i")))
 
 (setq org-agenda-files '("~/org"))
+(setenv "LD_LIBRARY_PATH" "/opt/ibm/lotus/notes/")
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
