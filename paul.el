@@ -131,7 +131,7 @@
 (define-key global-map "\C-cc" 'org-capture)
 (setq org-directory "~/org")
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
+      '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Inbox")
          "* TODO %?\n  %i\n  %a")
         ("j" "Journal" entry (file+datetree "~/org/journal.org")
          "* %?\n  Entered on %T\n  %i")))
