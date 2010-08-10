@@ -132,9 +132,11 @@
 (setq org-directory "~/org")
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Inbox")
-         "* TODO %?\n  %i\n  %a")
+         "* TODO %i%?")
+        ("p" "project" entry (file "~/org/gtd.org")
+         "* %i%? :project:")
         ("j" "Journal" entry (file+datetree "~/org/journal.org")
-         "* %?\n  Entered on %T\n  %i")))
+         "* %i%?\n  Entered on %T")))
 
 (setq org-agenda-files '("~/org"))
 (setenv "LD_LIBRARY_PATH" "/opt/ibm/lotus/notes/")
