@@ -1,0 +1,5 @@
+(when (and (not window-system)
+           (string-match "^xterm" (getenv "TERM")))
+  (require 'xterm-title)
+  (xterm-title-mode 1)
+  (setq xterm-title-frame-title-format '(buffer-file-name "%f" ("%b"))))
