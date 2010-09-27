@@ -89,16 +89,19 @@ titles will be restored."
   (cond (xterm-title-mode
          (xterm-title-save-orig-titles)
          (add-hook 'post-command-hook 'xterm-title-update)
+         ;;(add-hook 'after-make-frame-functions 'xterm-title-update)
          (add-hook 'kill-emacs-hook 'xterm-title-restore-orig-titles))
         (t
          (remove-hook 'kill-emacs-hook 'xterm-title-restore-orig-titles)
+         ;;(remove-hook 'after-make-frame-functions 'xterm-title-update)
          (remove-hook 'post-command-hook 'xterm-title-update)
          (xterm-title-restore-orig-titles))))
 
 (defun xterm-title-update ()
   "Update xterm window and icon titles with the selected Emacs tty frame."
   (unless (and xterm-title-mode
-               (eq (selected-window) xterm-title-update-last-window))
+               (or (frame-parameter (selected-frame) 'window-system)
+                   (eq (selected-window) xterm-title-update-last-window)))
     (xterm-set-window-title
      (format-mode-line (or xterm-title-frame-title-format
                            (frame-parameter nil 'title)
