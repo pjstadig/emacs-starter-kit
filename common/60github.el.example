@@ -1,0 +1,2 @@
+(setq github-user "pjstadig")
+(setq github-token "foobar")
