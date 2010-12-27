@@ -12,3 +12,4 @@
          "* %i%? :project:")
         ("j" "Journal" entry (file+datetree "journal.org")
          "* %i%?\n  Entered on %T")))
+(setq comment-start nil)
