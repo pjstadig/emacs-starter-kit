@@ -1,3 +1,5 @@
 (require 'color-theme)
 (load-file "~/.emacs.d/color-theme-paul.el")
 (color-theme-paul)
+;;(load-file "~/.emacs.d/color-theme-tangotango.el")
+;;(color-theme-tangotango)
