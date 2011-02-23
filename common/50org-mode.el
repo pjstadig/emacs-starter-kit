@@ -7,9 +7,15 @@
 (setq org-agenda-files (list org-directory))
 (setq org-completion-use-ido 't)
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "gtd.org" "Inbox")
+      '(("t" "Todo" entry (file "inbox.org")
          "* TODO %i%?")
-        ("p" "project" entry (file "gtd.org")
+        ("p" "Project" entry (file "gtd.org")
          "* %i%? :project:")
         ("j" "Journal" entry (file+datetree "journal.org")
          "* %i%?\n  Entered on %T")))
+(setq org-refile-targets `((,(concat home-dir "/org/gtd.org") . (:level . 1))))
+
+(setq org-mobile-directory (concat home-dir "/Dropbox/org"))
+(setq org-mobile-files nil)
+(setq org-mobile-inbox-for-pull (concat home-dir "/org/inbox.org"))
+(setq org-mobile-force-id-on-agenda-items nil)
