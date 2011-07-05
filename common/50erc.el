@@ -13,8 +13,8 @@
            erc-nick "pjstadig"
            erc-autojoin-timing :ident
            erc-autojoin-channels-alist
-           '(("freenode.net" "#clojure"
-              "#clojure-awesome" "#sonian" "#sonian-safe"))
+           '(("freenode.net" "#clojure")
+             ("irc.sa2s.us" "#safe-" "#safe" "#devs" "#files"))
            erc-ignore-list '("sexpbot")
            erc-prompt-for-nickserv-password nil)
      (require 'erc-services)
