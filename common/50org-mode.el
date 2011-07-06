@@ -18,8 +18,10 @@
         ("j" "Journal" entry (file+datetree "journal.org")
          "* %i%?\n  Entered on %T")))
 (setq org-refile-targets `((,(concat home-dir "/org/gtd.org") . (:level . 1))))
+(setq org-todo-keywords
+       '((sequence "TODO" "|" "WAITING" "DONE")))
 
-(setq org-mobile-directory (concat home-dir "/Dropbox/org"))
+(setq org-mobile-directory (concat home-dir "/Dropbox/mobileorg"))
 (setq org-mobile-files nil)
 (setq org-mobile-inbox-for-pull (concat home-dir "/org/inbox.org"))
 (setq org-mobile-force-id-on-agenda-items nil)
