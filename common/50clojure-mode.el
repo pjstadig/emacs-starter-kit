@@ -4,4 +4,5 @@
   (autoload 'clojure-test-maybe-enable "clojure-test-mode" "" t)
   (add-hook 'clojure-mode-hook 'clojure-test-maybe-enable)
   (add-hook 'clojure-mode-hook '(lambda ()
+                                  (paredit-mode t)
                                   (whitespace-mode t))))
