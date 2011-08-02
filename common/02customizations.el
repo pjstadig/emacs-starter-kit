@@ -1,5 +1,5 @@
+(setq-default fill-column 80)
 (setq color-theme-is-cumulative t
-      fill-column 80
       frame-background-mode 'dark
       whitespace-line-column 80)
 
