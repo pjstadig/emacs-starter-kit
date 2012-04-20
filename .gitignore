@@ -21,3 +21,4 @@ session*
 tramp
 \#*
 /common/60github.el
+swank
