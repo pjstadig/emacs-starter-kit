@@ -45,7 +45,7 @@
                                         cmsg)
                             " ")))
     (shell-command-to-string
-     (format "notify-send '%s says:' '%s'"
+     (format "erc-notify '%s says:' '%s'"
              nick msg))))
 
 (add-hook 'erc-text-matched-hook 'call-libnotify)
