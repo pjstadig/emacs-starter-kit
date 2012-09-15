@@ -14,7 +14,7 @@
            erc-autojoin-timing :ident
            erc-autojoin-channels-alist
            '(("freenode.net" "#clojure")
-             ("irc.sa2s.us" "#safe" "#devs" "#files"))
+             ("irc.sa2s.us" "#safe" "#devs"))
            erc-ignore-list '("sexpbot")
            erc-prompt-for-nickserv-password nil)
      (require 'erc-services)
