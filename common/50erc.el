@@ -40,7 +40,10 @@
 (defun call-libnotify (matched-type nick msg)
   (let* ((cmsg  (split-string (clean-message msg)))
          (nick   (first (split-string nick "!")))
-         (msg    (mapconcat 'identity (rest cmsg) " ")))
+         (msg    (mapconcat 'identity (if (string= (first cmsg) "pjstadig:")
+                                          (rest cmsg)
+                                        cmsg)
+                            " ")))
     (shell-command-to-string
      (format "notify-send '%s says:' '%s'"
              nick msg))))
